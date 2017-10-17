@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="sait" %>
+<%@taglib uri="/WEB-INF/sait.tld" prefix="dt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,13 +14,13 @@
         <title>Remember Me Login Page</title>
     </head>
     <body>
+        
+        <dt:debug>
+	Remote Host: ${pageContext.request.remoteHost}<br />
+	Session ID: ${pageContext.session.id}
+        </dt:debug>
+
         <h1>Login</h1>
-        <form action="login" method="post">
-            <p>Username:<input type="text" name="Uname" value="${user.username}"></p>
-            <p>Password:<input type="password" name="Pword" value="${user.password}"></p>
-            <input type="submit" value="Login">
-            <p><input type="checkbox" name="rememberme">Remember me</p>
-        </form>
-            ${display}
+        <sait:login></sait:login>
     </body>
 </html>
